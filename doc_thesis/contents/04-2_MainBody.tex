@@ -199,7 +199,8 @@ $H = 10$ 为跳步长度（hop size），即 50\% 重叠（overlapping points $=
     \centering
     \caption{\ptheadingfont{三种分类方法对比}}
     \label{tab:method_compare}
-    \begin{tabular}{|p{2cm}|p{4.5cm}|p{3.5cm}|p{3cm}|}
+    {\zihao{5}\setlength{\extrarowheight}{2pt}%
+    \begin{tabularx}{\linewidth}{|>{\centering\arraybackslash}p{2.2cm}|>{\centering\arraybackslash}X|>{\centering\arraybackslash}X|>{\centering\arraybackslash}X|}
         \hline
          & \textbf{支持向量机（SVM）} & \textbf{卷积神经网络（CNN）} & \textbf{带有时序的网络（RNN/LSTM）} \\
         \hline
@@ -209,9 +210,9 @@ $H = 10$ 为跳步长度（hop size），即 50\% 重叠（overlapping points $=
         \hline
         训练时间 & 最短（$<$5s） & 较长（$<$10min） & 中等 \\
         \hline
-        占用空间 & 小（SVM可以在CPU上运行） & 中（Apple 654.7MB $\approx$ cuda 1.0$\sim$1.2GB） & 小（Apple 54.4MB $\approx$ cuda 0.4$\sim$0.6GB） \\
+        占用空间 & 小（可在CPU运行） & 中（Apple 654.7MB $\approx$ cuda 1.0--1.2GB） & 小（Apple 54.4MB $\approx$ cuda 0.4--0.6GB） \\
         \hline
-    \end{tabular}
+    \end{tabularx}}
 \end{table}
 
 \section{实验设计}
@@ -224,7 +225,8 @@ $H = 10$ 为跳步长度（hop size），即 50\% 重叠（overlapping points $=
     \centering
     \caption{\ptheadingfont{射频硬件平台设计}}
     \label{tab:hardware}
-    \begin{tabular}{|c|c|c|}
+    {\zihao{5}\setlength{\extrarowheight}{2pt}%
+    \begin{tabularx}{\linewidth}{|>{\centering\arraybackslash}p{2.5cm}|>{\centering\arraybackslash}X|>{\centering\arraybackslash}X|}
         \hline
         \textbf{组件} & \textbf{型号/规格} & \textbf{功能} \\
         \hline
@@ -242,7 +244,7 @@ $H = 10$ 为跳步长度（hop size），即 50\% 重叠（overlapping points $=
         \hline
         连接方式 & 4 路 SMP 同轴连接器 & 天线板与 RF 板之间 \\
         \hline
-    \end{tabular}
+    \end{tabularx}}
 \end{table}
 
 天线按 L 形排列在约 $5\,\text{cm} \times 5\,\text{cm}$ 的正方形区域内，平放于桌面，射频参数配置具体为：载波频率通过 MAX2829 的寄存器 3/4/5 配置为约 5.8 GHz；发射增益固定（寄存器 12 = 0x0034）；接收增益基准 RXp = 0x002F，三路天线分别设置为 RXp-3、RXp-4 和 RXp 以补偿各路径的增益差异。上电后需等待约 1 秒让 MAX2829 内部锁相环完成锁定。

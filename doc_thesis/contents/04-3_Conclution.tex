@@ -6,39 +6,44 @@
     \centering
     \caption{\ptheadingfont{SVM训练配置}}
     \label{tab:svm_config}
-    \begin{tabular}{|c|c|c|c|}
+    {\zihao{5}\setlength{\extrarowheight}{2pt}%
+    \begin{tabularx}{\linewidth}{|>{\centering\arraybackslash}p{3cm}|>{\centering\arraybackslash}p{2cm}|>{\centering\arraybackslash}X|>{\centering\arraybackslash}p{2cm}|}
         \hline
         \textbf{输入特征} & \textbf{填充Padding} & \textbf{分类器} & \textbf{Epoch} \\
         \hline
         41 维（3$\times$13+2） & 100 & SVC(kernel=``rbf'', C=5) + OneVsRestClassifier & 无epoch \\
         \hline
-    \end{tabular}
+    \end{tabularx}}
 \end{table}
 
 \begin{table}[htbp]
     \centering
     \caption{\ptheadingfont{CNN训练配置}}
     \label{tab:cnn_config}
+    \resizebox{\linewidth}{!}{%
+    \zihao{5}\setlength{\extrarowheight}{2pt}%
     \begin{tabular}{|c|c|c|c|c|c|c|}
         \hline
         \textbf{输入维度} & \textbf{骨干网络} & \textbf{批次大小} & \textbf{优化器} & \textbf{优化器参数} & \textbf{学习率调度} & \textbf{Epoch} \\
         \hline
         $224\times224$ & MobileNet\_V2 (ImageNet 1K) & Train:8 / Val:16 & Adam & LR=3e-4, WeightDecay=1e-4 & step=10, gamma=0.5 & 30 \\
         \hline
-    \end{tabular}
+    \end{tabular}}
 \end{table}
 
 \begin{table}[htbp]
     \centering
     \caption{\ptheadingfont{LSTM训练配置}}
     \label{tab:lstm_config}
+    \resizebox{\linewidth}{!}{%
+    \zihao{5}\setlength{\extrarowheight}{2pt}%
     \begin{tabular}{|c|c|c|c|c|c|c|}
         \hline
         \textbf{隐藏维度} & \textbf{网络结构} & \textbf{批次大小} & \textbf{优化器} & \textbf{优化器参数} & \textbf{损失函数} & \textbf{Epoch} \\
         \hline
         60 & LSTM(6,60)$\to$Linear(60, num\_classes) & 10 & Adam & LR=3e-3, WeightDecay=2e-3 & CrossEntropy Loss & 30 \\
         \hline
-    \end{tabular}
+    \end{tabular}}
 \end{table}
 
 我们的测试结果如下所示，其中，SVM方法平均训练时间0.011s，CNN方法平均训练时间172.1s，LSTM平均训练时间为79.1s。
@@ -47,6 +52,8 @@
     \centering
     \caption{\ptheadingfont{SVM vs. CNN vs. RNN/LSTM}}
     \label{tab:results}
+    \resizebox{\linewidth}{!}{%
+    \zihao{5}\setlength{\extrarowheight}{2pt}%
     \begin{tabular}{|c|cccc|cccc|cccc|}
         \hline
         & \multicolumn{4}{c|}{\textbf{SVM}} & \multicolumn{4}{c|}{\textbf{CNN}} & \multicolumn{4}{c|}{\textbf{LSTM}} \\
@@ -61,7 +68,7 @@
         \hline
         \textbf{Avg.} & \textbf{90.1} & \textbf{89.6} & \textbf{87.1} & \textbf{87.9} & \textbf{98.4} & \textbf{98.5} & \textbf{98.3} & \textbf{98.3} & \textbf{62.5} & \textbf{62.3} & \textbf{50.2} & \textbf{51.4} \\
         \hline
-    \end{tabular}
+    \end{tabular}}
 \end{table}
 
 其中对于LSTM这种方法呈现的意外低准确率作出以下分析：1.数据量太小，而LSTM参数量较大，可能导致过拟合；2.时序长度不稳定，当前的样本中的手势信号为了确保鲁棒性，在样本前段的静止时间并非固定，而LSTM高度依赖固定的时序模板，进行时间归一化后可能已经破坏时序依赖，这也证明了LSTM方法在手势识别任务中并没有达到理想效果。相比LSTM对长时间依赖关系的建模，频谱图中的局部纹理与边缘结构更适合由卷积核进行空间特征提取，因此CNN表现出显著优势。
