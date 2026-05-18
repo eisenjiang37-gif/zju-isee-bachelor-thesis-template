@@ -32,7 +32,7 @@
         \hline
         \textbf{输入维度} & \textbf{骨干网络} & \textbf{批次大小} & \textbf{优化器} & \textbf{优化器参数} & \textbf{学习率调度} & \textbf{Epoch} \\
         \hline
-        $224\times224$ & \mbox{MobileNet\_V2}\newline\mbox{(ImageNet 1K)} & Train:8 /\newline Val:16 & Adam & \mbox{LR=3e-4,}\newline\mbox{WeightDecay=1e-4} & \mbox{step=10,}\newline\mbox{gamma=0.5} & 30 \\
+        $224\times224$ & \mbox{MobileNet\_V2}\newline\mbox{(ImageNet 1K)} & Train:8 /\newline Val:16 & Adam & \mbox{LR=3e-4,}\newline\mbox{WD=1e-4} & \mbox{step=10,}\newline\mbox{gamma=0.5} & 30 \\
         \hline
     \end{tabularx}}
 \end{table}
@@ -46,7 +46,7 @@
         \hline
         \textbf{隐藏维度} & \textbf{网络结构} & \textbf{批次大小} & \textbf{优化器} & \textbf{优化器参数} & \textbf{损失函数} & \textbf{Epoch} \\
         \hline
-        60 & \mbox{LSTM(6,60)}$\to$\newline\mbox{Linear(60,}\newline\mbox{num\_classes)} & 10 & Adam & \mbox{LR=3e-3,}\newline\mbox{WeightDecay=2e-3} & \mbox{CrossEntropy}\newline\mbox{Loss} & 30 \\
+        60 & \mbox{LSTM(6,60)}$\to$\newline\mbox{Linear(60,}\newline\mbox{num\_classes)} & 10 & Adam & \mbox{LR=3e-3,}\newline\mbox{WD=2e-3} & \mbox{CrossEntropy}\newline\mbox{Loss} & 30 \\
         \hline
     \end{tabularx}}
 \end{table}
