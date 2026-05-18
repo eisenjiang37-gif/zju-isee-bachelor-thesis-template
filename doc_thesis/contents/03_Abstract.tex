@@ -7,9 +7,13 @@
 
 \setfont{-4}{1.5}
 
-\bullshit
+手势识别是实现自然人机交互的关键技术。相比视觉方案受限于光照条件和隐私风险，多普勒雷达凭借全天候工作、非接触感知和隐私友好等优势成为新兴研究方向。本毕业设计以5.8GHz三通道TDM-SIMO连续波多普勒雷达为平台，围绕菲涅尔近场区内手掌运动的电磁散射建模、信号处理与分类算法展开研究。
 
-\noindent{\bfseries 关键词：}关键词1；关键词2
+理论层面，基于米氏散射理论建立了手掌动态反射散射模型，推导了手掌运动与多通道接收信号间的确定性相位调制关系，为特征提取提供了物理层依据。针对实际交互中手势前后缺乏静止段的问题，提出了一种基于连续信号流回溯的静止区间恢复方法，结合功率峰值时间特征替代传统的相位最小值特征，显著提升了确定性信号方法的鲁棒性。
+
+系统层面，搭建了集成射频前端、ADC采样与数字信号处理的完整硬件链路，实现了125Hz的稳定采样。算法层面，构建了确定性信号特征+SVM、MobileNetV2迁移学习、LSTM序列分类三种互补方案，在7类手势下进行了系统评估。资源评估表明各方案均可在嵌入式SoC平台运行，验证了低成本多普勒雷达手势识别系统的实用可行性。
+
+\noindent{\bfseries 关键词：}手势识别；多普勒雷达；TDM-SIMO；米氏散射；确定性信号；迁移学习；支持向量机
 
 \newpage
 \setcounter{page}{9}
@@ -20,6 +24,10 @@
     \vspace{0.5ex}
 \end{center}
 
-\bullshit
+Gesture recognition is a key technology for natural human-computer interaction. Compared with vision-based approaches that are constrained by lighting conditions and privacy concerns, Doppler radar offers advantages including all-weather operation, non-contact sensing, and privacy preservation. This thesis is based on a 5.8 GHz three-channel TDM-SIMO continuous-wave Doppler radar platform, with research conducted on electromagnetic scattering modeling of hand movements in the Fresnel near-field region, signal processing, and classification algorithms.
 
-\noindent{\bfseries Keywords: }Keywords1；Keywords2
+At the theoretical level, a dynamic reflection scattering model of the hand is established based on Mie scattering theory, and the deterministic phase modulation relationship between hand motion and multi-channel received signals is derived, providing a physical-layer foundation for feature extraction. To address the absence of quiet periods before and after gestures in practical interaction scenarios, a method is proposed that recovers quiescent intervals by retrospective matching within the continuous signal stream, combined with power-peak time features to replace the conventional phase-minimum features, significantly improving the robustness of the deterministic signal approach.
+
+At the system level, a complete hardware chain integrating the RF front-end, ADC sampling, and digital signal processing is implemented, achieving stable sampling at 125 Hz. At the algorithm level, three complementary schemes are developed --- deterministic signal features with SVM, MobileNetV2 transfer learning, and LSTM sequence classification --- and systematically evaluated under 5-fold cross-validation on 7 gesture classes. Resource assessment confirms that all schemes can run on embedded SoC platforms, validating the practical feasibility of low-cost Doppler radar gesture recognition systems.
+
+\noindent{\bfseries Keywords: }gesture recognition; Doppler radar; TDM-SIMO; Mie scattering; deterministic signal; transfer learning; support vector machine
