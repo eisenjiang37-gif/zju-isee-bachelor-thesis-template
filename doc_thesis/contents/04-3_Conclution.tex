@@ -18,7 +18,7 @@
         \hline
         \textbf{输入特征} & \textbf{填充Padding} & \textbf{分类器} & \textbf{Epoch} \\
         \hline
-        41维（3$\times$13+2） & 100 & SVC(kernel=``rbf'', C=5) + OneVsRestClassifier & 无epoch \\
+        41维（3$\times$13+2） & 100 & SVC(kernel=``rbf'', C=5)\newline + OneVsRestClassifier & 无epoch \\
         \hline
     \end{tabularx}}
 \end{table}
@@ -32,7 +32,7 @@
         \hline
         \textbf{输入维度} & \textbf{骨干网络} & \textbf{批次大小} & \textbf{优化器} & \textbf{优化器参数} & \textbf{学习率调度} & \textbf{Epoch} \\
         \hline
-        $224\times224$ & MobileNet\_V2 (ImageNet 1K) & Train:8 / Val:16 & Adam & LR=3e-4, WeightDecay=1e-4 & step=10, gamma=0.5 & 30 \\
+        $224\times224$ & MobileNet\_V2\newline(ImageNet 1K) & Train:8 / Val:16 & Adam & LR=3e-4,\newline WeightDecay=1e-4 & step=10,\newline gamma=0.5 & 30 \\
         \hline
     \end{tabularx}}
 \end{table}
@@ -46,7 +46,7 @@
         \hline
         \textbf{隐藏维度} & \textbf{网络结构} & \textbf{批次大小} & \textbf{优化器} & \textbf{优化器参数} & \textbf{损失函数} & \textbf{Epoch} \\
         \hline
-        60 & LSTM(6,60)$\to$Linear(60, num\_classes) & 10 & Adam & LR=3e-3, WeightDecay=2e-3 & CrossEntropy Loss & 30 \\
+        60 & LSTM(6,60)$\to$\newline Linear(60,\newline num\_classes) & 10 & Adam & LR=3e-3,\newline WeightDecay=2e-3 & CrossEntropy\newline Loss & 30 \\
         \hline
     \end{tabularx}}
 \end{table}
@@ -57,12 +57,12 @@
     \centering
     \caption{\ptheadingfont{SVM vs. CNN vs. RNN/LSTM}}
     \label{tab:results}
-    {\zihao{5}\setlength{\baselineskip}{1\baselineskip}%
-    \begin{tabularx}{\linewidth}{|>{\centering\arraybackslash}p{1.0cm}|*{4}{>{\centering\arraybackslash}X}|*{4}{>{\centering\arraybackslash}X}|*{4}{>{\centering\arraybackslash}X}|}
+    {\zihao{5}\setlength{\baselineskip}{1\baselineskip}\setlength{\tabcolsep}{3pt}%
+    \begin{tabularx}{\linewidth}{|>{\centering\arraybackslash}p{0.8cm}|*{4}{>{\centering\arraybackslash}X}|*{4}{>{\centering\arraybackslash}X}|*{4}{>{\centering\arraybackslash}X}|}
         \hline
         & \multicolumn{4}{c|}{\textbf{SVM}} & \multicolumn{4}{c|}{\textbf{CNN}} & \multicolumn{4}{c|}{\textbf{LSTM}} \\
         \hline
-        \textbf{Fold} & Acc & Prec & Recall & F1 & Acc & Prec & Recall & F1 & Acc & Prec & Recall & F1 \\
+        \textbf{Fold} & Acc & Prec & Rec & F1 & Acc & Prec & Rec & F1 & Acc & Prec & Rec & F1 \\
         \hline
         1 & 91.2 & 89.5 & 87.2 & 88.1 & 99.1 & 98.8 & 99.3 & 99.0 & 63.2 & 58.1 & 50.0 & 52.0 \\
         2 & 92.9 & 91.5 & 90.2 & 90.5 & 98.2 & 97.4 & 99.3 & 98.3 & 61.1 & 65.0 & 48.6 & 49.9 \\
