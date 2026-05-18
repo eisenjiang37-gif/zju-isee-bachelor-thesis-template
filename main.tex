@@ -15,11 +15,20 @@
 %-----------------------------------------------------------------
 % main doc
 %-----------------------------------------------------------------
+\setlength{\parskip}{0pt}
 \begin{document}
 % 目录
 \makecover
 \startcontents[thesis]
 \startcontents[threeinone]
+% 手动向三合一目录添加第二部分条目（thesisonly模式下3in1内容为外部PDF）
+\addcontentsline{ptc-threeinone}{trsectionnoiddot}{第二部分\hspace{1em}文献综述和开题报告}
+\addcontentsline{ptc-threeinone}{trsection}{一、文献综述}
+\addcontentsline{ptc-threeinone}{trsection}{二、开题报告}
+\addcontentsline{ptc-threeinone}{trsection}{三、外文翻译}
+\addcontentsline{ptc-threeinone}{trsection}{四、外文原文}
+\addcontentsline{ptc-threeinone}{trsectionnoiddot}{指导教师对文献综述和开题报告具体内容要求}
+\addcontentsline{ptc-threeinone}{trsectionnoiddot}{《浙江大学本科生文献综述和开题报告考核表》}
 \stopcontents[threeinone]
 % 原创性声明
 \pagestyle{infoPage}
